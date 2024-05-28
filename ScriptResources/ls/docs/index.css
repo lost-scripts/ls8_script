@@ -1,0 +1,446 @@
+/* 
+ScriptName = "index.css"
+ScriptBirth = "20240506-0030"
+ScriptBuild = "20240525-0054"
+*/
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	color: #CCC;
+	font-family: 'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif,'Segoe UI Emoji';
+	background-color: #272822;
+	accent-color: yellow;
+	scrollbar-color: SlateGrey DarkSlateGrey;
+	scrollbar-width: thin;
+}
+
+* {
+	box-sizing: border-box; /* Includes padding and borders in width and height */
+}
+
+*:disabled {
+	opacity: 0.67;
+	pointer-events: none;
+	cursor: not-allowed;
+}
+
+a:link {
+	text-decoration: none;
+	color: #7dcbff;
+}
+
+a:visited {
+	color: #c680ff;
+	text-decoration: none
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #FFFF00;
+}
+
+a:active {
+	text-decoration: none;
+	color: #ff8000;
+}
+
+blockquote {
+	border-left: 6px solid yellow;
+	font-size: 16px;
+	margin: 0.25em 0px;
+	padding: 0.25em 1em;
+	background-color: #363D45;
+}
+
+blockquote blockquote {
+	border-left: 2px solid dimgrey;
+	margin-left: 0.25em; /* Ajusta este valor según sea necesario */
+	padding-left: 1em; /* Ajusta este valor según sea necesario */
+}
+
+blockquote code {
+	display: block;
+}
+
+button {
+	color: inherit;
+	background-color: #333;
+	border: 1px solid #111;
+	border-radius: 4px;
+	margin: 0px 2px;
+	padding: 4px 8px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	white-space: nowrap;
+	font-size: small;
+}
+
+button:hover {
+	background-color: #555;
+}
+
+button:active {
+	color: inherit;
+	background-color: rgb(80, 80, 0);
+	border-color: yellow;
+	transform: translateX(1px) translateY(1px);
+}
+
+details ul {
+	margin: 0;
+	padding: 0.25em 0 0.5em 1.25em;
+	list-style-type: none;
+}
+
+h1 {
+	text-align: center;
+	color: yellow;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+h2 {
+	text-align: left;
+	color: yellow;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+hr {
+	height: 2px;
+	background-color: #444;
+	color: #333;
+	border: none;
+}
+
+img.colorize {
+	image-rendering: crisp-edges;
+	filter: invert(1) sepia(1) hue-rotate(160deg) invert(1) hue-rotate(60deg) brightness(10000%) saturate(100%) drop-shadow(4px 2px 6px black);
+}
+
+span {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.center {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.hs, .hs1, .hs2, .hs3 { /* Horizontal Separator*/
+	display: block;
+	height: 2px;
+	width: 2px;
+	background-color: transparent;
+	border-bottom: 1px solid #ddd;
+}
+.hs1 {height: 4px;}
+.hs2 {height: 8px;}
+.hs3 {height: 16px;}
+
+/* Style the tab */
+.tab {
+	display: flex;
+	/* gap: 4px; */
+	background-color: #333;
+	flex-shrink: 0;
+}
+
+.tab-group {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	border: 1px #333; /* And bellow: Best way to apply two-side-only border? */
+	border-style: solid none;
+	box-shadow: inset 2px 4px 4px rgba(0,0,0,0.5);
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+	display: flex;
+	flex: 1;
+	color: inherit;
+	background-color: inherit;
+	border: none;
+	border-radius: 0;
+	outline: none;
+	margin: 0;
+	padding: 8px 4px;
+	align-items: center;
+	justify-content: center;
+	white-space: nowrap; /* Prevent text from wrapping */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	box-shadow: 2px 4px 4px rgba(0,0,0,0.5);
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.tab button:nth-child(1) {
+	flex: 2; /* El primer botón ocupará 3 partes */
+}
+
+.tab button:nth-child(2) {
+	flex: 2; /* El segundo botón ocupará 2 partes */
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+	background-color: #666;
+}
+
+.tab button:nth-child(1).active {
+	box-shadow: inset 0px 4px 4px rgba(0,0,0,0.5);
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+	/* background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0px, rgba(0,0,0,0) 10px); */
+	background-color: #1E1F1C; /*#ccc*/
+	box-shadow: inset 2px 4px 4px rgba(0,0,0,0.5);
+}
+
+/* Style the tab content */
+.tabContent {
+	flex-grow: 1;
+	display: none; /* Keep this display:none initially */
+	padding: 12px 8px 4px 8px;
+	/* border: 1px solid #ccc; */
+	border-top: none;
+	overflow-y: auto;
+	scrollbar-width: thin;
+	animation: fadeEffect 0.3s; /* Fading effect takes 1 second */
+}
+
+/* Ensure the first visible tab has the correct display */
+.tabContent:first-of-type {
+	display: block;
+}
+
+.tab .tab-text {
+	margin-left: 2px;
+	font-size: x-small;
+	font-weight: bold;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.slider {
+	width: 100%;
+	height: 6px;
+	margin: 12px auto;
+	outline: none;
+}
+
+.widget-group {
+	gap: 10px;
+	font-size: small;
+	margin-bottom: 8px;
+	padding: 12px 8px;
+	border-radius: 4px;
+	border: 1px solid #444;
+}
+
+.widget-group2 {
+	display: grid; /* Enable CSS Grid Layout */
+	grid-template-columns: auto 1fr; /* Define column widths */
+	justify-content: end;
+}
+
+#layout {
+	display: flex;
+	height: 100%;
+	overflow-y: hidden;
+}
+
+#menu {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 15%; /* Initial width, 224px */
+	min-width: 144px;
+	max-width: 288px;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	resize: horizontal;
+	background-color: #1E1F1C;
+	box-shadow: 4px 0px 8px rgba(0,0,0,0.5);
+	z-index: 1;
+}
+
+/*
+#menu::after {
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	width: 90%;
+	max-width: fit-content;
+	height: fit-content;
+	display: flex;
+	vertical-align: bottom;
+	text-align: center;
+	justify-content: center;
+	align-items: flex-end;
+	margin: auto;
+	padding: 8px 4px;
+	font-size: 9px;
+	color: #CCC;
+	content: 'Copyright © 2024 · Rai López · All Rights Reserved';
+	background: linear-gradient(to top, rgba(30,31,28,1) 25%, rgba(30,31,28,0) 100%);
+	pointer-events: none;
+}
+*/
+
+#menu-header {
+	top: 0; /* Remain at the top of the container */
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	border-bottom: 1px solid #333;
+	/* background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0px, rgba(0,0,0,0) 10px); */
+	box-shadow: inset 2px 4px 4px rgba(0,0,0,0.5);
+} 
+
+#menu-logo {
+	width: 33%;
+	min-width: 32px;
+	max-width: 128px;
+	margin: 0px auto -2px auto;
+	padding: 0;
+	font-size: 24px;
+}
+
+#menu-search {
+	width: 90%; /* Full-width */
+	font-size: 12px; /* Increase font-size */
+	padding: 3px 5px 3px 10px; /* Add some padding */
+	border: 1px solid #ddd; /* Add a grey border */
+	margin: 0 auto 8px auto;
+}
+
+#menu-search::placeholder {
+	text-align: right;
+	opacity: 0.67;
+}
+
+#menu-content {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: auto; /* Remove fixed height */
+	overflow-y: auto;
+	scrollbar-width: thin;
+}
+
+#menu-content1 {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	overflow-y: hidden;
+}
+
+#menu-footer {
+	width: 100%;
+	height: fit-content;
+	text-align: center;
+	justify-content: center;
+	/* align-items: flex-end; */
+	margin: 0 auto;
+	padding: 8px 6px;
+	color: inherit;
+	border-top: 1px solid #333;
+	box-shadow: inset 2px 4px 4px rgba(0,0,0,0.5);
+	container-type: inline-size; /* Defines the element as a container */
+	/* background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0px, rgba(0,0,0,0) 10px); */
+	/*pointer-events: none;*/ /* no react to pointer events */
+}
+
+#menu-footer span {
+	font-size: 8px; /* Fallback for unsupported browsers */
+	font-size: clamp(8px, 4.5cqw, 12px); /* Minimum 8px, based on 4.5cqw, Maximum 12px */
+}
+
+#menu-list {
+	padding: 0px 8px;
+	/* border: 1px solid red; */
+}
+
+.menu-item {
+	display: list-item;
+	overflow-x: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 0px 4px;
+	cursor: pointer;
+}
+
+.menu-details summary {
+	margin: 4px 0 0 0;
+	padding: 2px 4px;
+	cursor: pointer;
+	border-radius: 4px;
+}
+
+.menu-details[open] summary {
+	background-color: #333;
+}
+
+.menu-summary {
+	display: list-item;
+	overflow-x: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#iContainer {
+	flex-grow: 1; /* Occupy the remaining space */
+	margin: 0;
+	padding: 0;
+	overflow-y: hidden;
+}
+
+#iFrame {
+	margin: 0;
+	padding: 0;
+	overflow-y: auto;
+	scrollbar-color: orange yellow;
+	scrollbar-width: thin;
+	/*border: 1px solid yellow;*/
+}
+
+#content {
+	/* box-sizing: border-box; */
+	width: 80%;
+	max-width: 1080px;
+	min-width: 360px;
+	margin: 0 auto 0 auto;
+	padding: 10px 5%;
+	overflow: hidden;
+	/*border: 1px solid yellow;*/
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
