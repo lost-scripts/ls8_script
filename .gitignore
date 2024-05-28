@@ -1,0 +1,30 @@
+# GENERAL #
+###########
+
+#*.git/
+# Ignore folders:
+#/ls_*/
+# Ignore files:
+#ls_*
+# Ignore all:
+#ls_
+
+# PATHS #
+#########
+
+
+
+# FOLDERS #
+###########
+
+#Modules/
+
+# FILE TYPES #
+##############
+
+
+
+# FILES #
+#########
+
+#Utility/ls_utilities_ext.lua

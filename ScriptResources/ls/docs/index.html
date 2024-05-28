@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Documentación del Proyecto</title>
+	<meta name="description" content="The Lost Scripts Official webpage">
+	<meta name="author" content="Rai López">
+	<link href="index.css" rel="stylesheet" type="text/css" />
+
+	<script type="text/javascript">
+		window.addEventListener('load', function() {
+			var page = window.location.hash.substring(1); // Gets the value after #
+			var iFrame = document.getElementById('iFrame');
+			if (page) {	// If there is a hash, loads that page in the iFrame
+				iFrame.src = page;
+			} else {	// If no hash, load index_home.html by default
+				iFrame.src = "index_home.html";
+			}
+		});
+
+		/*
+		var isExpanded = false; // Initial state, all contracted
+		function toggleExpansion() {
+			const detailsElements = document.querySelectorAll("details");
+			const toggleButton = document.getElementById('toggleButton');
+
+			detailsElements.forEach(item => {
+				if (!isExpanded) {
+					item.setAttribute("open", "");
+				} else {
+					item.removeAttribute("open");
+				}
+			});
+
+			// Change button state and text
+			isExpanded = !isExpanded;
+			toggleButton.textContent = isExpanded ? "Contract All" : "Expand All";
+		}
+		*/
+
+		function showTab(evt, cityName) {
+			// Declare all variables
+			var i, tabContent, tabLinks;
+
+			// Get all elements with class="tabContent" and hide them
+			tabContent = document.getElementsByClassName("tabContent");
+			for (i = 0; i < tabContent.length; i++) {
+				tabContent[i].style.display = "none";
+			}
+
+			// Get all elements with class="tabLinks" and remove the class "active"
+			tabLinks = document.getElementsByClassName("tabLinks");
+			for (i = 0; i < tabLinks.length; i++) {
+				tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+			}
+
+			// Show the current tab, and add an "active" class to the button that opened the tab
+			document.getElementById(cityName).style.display = "block";
+			evt.currentTarget.className += " active";
+		}
+
+		document.addEventListener('DOMContentLoaded', (event) => { // Code requiring DOM elements loaded here...
+			document.getElementById("defaultOpen").click(); // Get the element with id="defaultOpen" and click on it
+
+			document.addEventListener('click', function(event) { // Allow expanding/contracting all details elements
+				// Verify if clicked element is <summary> and if Alt key was pressed
+				if (event.target.nodeName === 'SUMMARY' && event.altKey) {
+					const detailsElements = document.querySelectorAll('details');
+					// Prevent default action so that the status does not change automatically
+					event.preventDefault();
+
+					// Determine if the clicked element is expanded
+					const isExpanded = event.target.parentNode.hasAttribute('open');
+
+					// Change the state of all <details> elements
+					detailsElements.forEach(item => {
+					if (isExpanded) {
+						item.removeAttribute('open');
+					} else {
+						item.setAttribute('open', '');
+					}
+					});
+
+					// Invert the state of the manually clicked element
+					if (isExpanded) {
+					event.target.parentNode.removeAttribute('open');
+					} else {
+					event.target.parentNode.setAttribute('open', '');
+					}
+				}
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<div id="layout">
+		<div id="menu"> <!-- The treeview with the list of links will be placed here -->
+			<div id="menu-header">
+				<a href="index_home.html" target="mainFrame" class="center" title="Lost Scripts Home"><img id="menu-logo" class ="colorize" src="assets/index_logo.png" alt="&nbsp;Lost Scripts™"></a>
+				<!-- <p align="center" title="Lost Scripts Icon"><img src="assets/index_logo_2.png" alt="&nbsp;Lost Scripts™" width="50%"; style="min-width: 64px; max-width: 128px; font-size: 24px; image-rendering: crisp-edges; filter: invert(1) sepia(1) hue-rotate(160deg) invert(1) hue-rotate(60deg) brightness(10000%) saturate(100%) drop-shadow(4px 2px 6px black);"></p> -->
+			</div>
+
+			<div id="menu-content">
+				<!-- <button id="toggleButton" class="center" onclick="toggleExpansion()">Expand All</button> -->
+
+				<div id="menu-content1" class="tab-group">
+					<!-- Tab links -->
+					<div class="tab">
+						<button class="tabLinks" title="Scripts" onclick="showTab(event, 'SCRIPTS')" id="defaultOpen">📄<span class="tab-text">Scripts</span></button>
+						<button class="tabLinks" title="Documentation" onclick="showTab(event, 'DOC')">📖<span class="tab-text">Documentation</span></button>
+						<button class="tabLinks" title="Info" onclick="showTab(event, 'INFO')">ℹ<span class="tab-text"></span></button>
+						<button class="tabLinks" title="Preferences" onclick="showTab(event, 'PREFS')">⚙<span class="tab-text"></span></button>
+					</div>
+
+					<div id="SCRIPTS" class="tabContent">
+						<!-- <h4 align="center">SCRIPTS</h3> -->
+						<details id="menu-details1" class="menu-details" open>
+							<summary class="menu-summary" title="'Click + Alt' expands/contracts all">LOST SCRIPTS</summary>
+							<ul>
+								<li class="menu-item"><a href="index_home.html" target="mainFrame">LS Project (Home)</a></li> 
+								<li class="menu-item"><a href="pages/index_subpage1.html" target="mainFrame">Shapes Window</a></li>
+								<li class="menu-item"><a href="pages/index_subpage2.html" target="mainFrame">Script Placeholder</a></li>
+							</ul>
+						</details>
+						<details id="menu-details2" class="menu-details">
+							<summary class="menu-summary" title="'Click + Alt' expands/contracts all">OTHER</summary>
+							<ul>
+								<li class="menu-item"><a href="pages/index_subpage1.html" target="mainFrame">Subpage 2.1</a></li>
+								<li class="menu-item"><a href="pages/index_subpage2.html" target="mainFrame">Subpage 2.2</a></li>
+							</ul>
+						</details>
+					</div>
+
+					<div id="DOC" class="tabContent">
+						<!-- <h4 align="center">DOCUMENTATION</h3> -->
+						<input type="text" id="menu-search" class="center" onkeyup="myFunction()" placeholder="🔍" disabled>
+
+						<ul>
+							<li class="menu-item"><a href="index_installation.html" target="mainFrame">Installation</a></li>
+						</ul>
+
+						<details id="menu-details3" class="menu-details" open>
+							<summary class="menu-summary" title="'Click + Alt' expands/contracts all">MODULES</summary>
+							<ul>
+								<li class="menu-item"><a href="pages/index_subpage1.html" target="mainFrame">LS</a></li>
+								<li class="menu-item"><a href="pages/index_subpage2.html" target="mainFrame">LS.GUI</a></li>
+								<li class="menu-item"><a href="pages/index_subpage2.html" target="mainFrame">LS.M</a></li>
+							</ul>
+						</details>
+					</div>
+
+					<div id="INFO" class="tabContent">
+						<!-- <h4 align="center">INFO</h3> -->
+						<p align="center" title="Copyright" style="font-size: 10px;" >Copyright © 2024 · Rai López · All Rights Reserved</p>
+					</div>
+
+					<div id="PREFS" class="tabContent">
+						<!-- <h4 align="center">PREFERENCES</h3> -->
+						<fieldset class="widget-group">
+							<legend class="legend-class">Brightness</legend>
+							<input type="range" min="0" max="100" value="15" class="slider" id="brightness">
+							<button id="brightDef" class="center" onclick="toggleExpansion()">Default</button>
+						</fieldset>
+
+						<fieldset class="widget-group">
+							<legend class="legend-class">Highlights</legend>
+							<input type="range" min="0" max="360" value="180" class="slider" id="highlights">
+							<button id="highDef" class="center" onclick="toggleExpansion()">Default</button>
+						</fieldset>
+
+						<fieldset class="widget-group widget-group2" style="height: 208px;">
+							<legend class="legend-class">Sample&nbsp;Widgets</legend>
+							<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; font-size: x-small;">
+								<!-- All this should align to left in column -->
+								<button id="sample1">Button 1</button>
+								<button id="sample2"  disabled>Disabled</button>
+								<div><input id="sample3" type="checkbox"> <label for="sample3">Checkbox</label></div>
+								<div style="display: block; white-space: nowrap;"><input id="sample4" type="radio"> <label for="sample4">Radio&nbsp;button</label></div>
+								<input id="sample5" type="text" value="Text control" size="6">
+								<input id="sample6" type="text" value="Text control" size="6" disabled>
+							</div>
+
+							<div style="height: 100%; width: 100%; overflow-y: scroll; scrollbar-width: thin; user-select: none;"> <!-- width: 14px; -->
+								<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+								<!-- Here, at right everything else there shoul be a 100% hight vertical scrollbar -->
+							</div>
+						</fieldset>
+					</div>
+				</div>
+
+				<!--
+				<ul id="menu-list">
+					<li class="menu-item"><a href="index_installation.html" target="mainFrame">INSTALLATION</a></li>
+					<details id="menu-details1" open>
+						<summary class="menu-summary" title="'Click + Alt' expands/contracts all">LOST SCRIPTS</summary>
+						<ul>
+							<li class="menu-item"><a href="pages/index_subpage1.html" target="mainFrame">Shapes Window</a></li>
+							<li class="menu-item"><a href="pages/index_subpage2.html" target="mainFrame">Script Placeholder</a></li>
+						</ul>
+					</details>
+					<details id="menu-details2">
+						<summary class="menu-summary" title="'Click + Alt' expands/contracts all">OTHER</summary>
+						<ul>
+							<li class="menu-item"><a href="pages/index_subpage1.html" target="mainFrame">Subpage 2.1</a></li>
+							<li class="menu-item"><a href="pages/index_subpage2.html" target="mainFrame">Subpage 2.2</a></li>
+						</ul>
+					</details>
+					<details id="menu-details3">
+						<summary class="menu-summary" title="'Click + Alt' expands/contracts all">DOCUMENTATION</summary>
+						<ul>
+							<li class="menu-item"><a href="index_installation.html" target="mainFrame">Installation</a></li>
+							<li class="menu-item"><a href="pages/index_subpage1.html" target="mainFrame">LS</a></li>
+							<li class="menu-item"><a href="pages/index_subpage2.html" target="mainFrame">LS.GUI</a></li>
+							<li class="menu-item"><a href="pages/index_subpage2.html" target="mainFrame">LS.M</a></li>
+						</ul>
+					</details>
+				</ul>
+				-->
+			</div>
+
+			<div id="menu-footer">
+				<span class="center" title="Copyright Info">Copyright © 2024 · Rai López · All Rights Reserved</span>
+			</div>
+		</div>
+		<div id="iContainer"> <!-- The content of the iframe will be displayed here -->
+			<iframe name="mainFrame" id="iFrame" src="" align="middle" frameborder="0" height="100%" width="100%" marginheight="0" marginwidth="0" allowtransparency="true">
+			</iframe>
+		</div>
+	</div>
+	
+	<!-- <script type="text/javascript"></script> -->
+</body>
+</html>

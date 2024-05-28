@@ -1,0 +1,8 @@
+/* anime_version 11200001 */
+/* keyboard shortcuts are now set in the application */
+/* for format compatibility placeholders are retained below */
+
+group Lost Scripts™
+button	ls_shapes_window	...
+button	ls_wiggle_window	...
+
