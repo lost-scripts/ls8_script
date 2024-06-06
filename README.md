@@ -23,7 +23,7 @@
 </head>
 <body bgcolor="#272822" text="#ffffff" link="#3794FF" alink="#FFFF00" vlink="#9437FF" style="background-color:#272822; margin:20px 40px 20px 40px; font-family: 'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif,'Segoe UI Emoji'">
 	<!--<hr color="yellow" size="10px" />-->
-	<h1 align="center" style="color: yellow; font-family: 'Josefin Sans', sans-serif;">Lost Script Test 8</h1>
+	<h1 align="center" style="color: yellow; font-family: 'Josefin Sans', sans-serif;">Lost Script Test 8.1</h1>
 	<p align="center" title="Script's Icon"><img src="./ScriptResources/ls/docs/assets/README_logo.png" alt="📄&thinsp;" height="144" style="font-size: 104px; image-rendering: pixelated; filter: invert(1) sepia(1) hue-rotate(160deg) invert(1) hue-rotate(60deg) brightness(10000%) saturate(100%) drop-shadow(6px 4px 8px black);"></p> <!--onerror="this.onerror=null; this.src='./ScriptResources/ls/docs/assets/README_logo_alt.png'"-->
 	<!--<p align="center" title="Script's Icon"><img src="./ScriptResources/ls/docs/assets/README_icon.png" alt="📄&thinsp;" height="144" style="font-size: 104px; image-rendering: pixelated; filter: drop-shadow(6px 4px 8px black);"></img></p>--> <!--onerror="this.onerror=null; this.src='./ScriptResources/ls/docs/assets/README_logo_alt.png'"-->
 	<h2 align="center" style="color: yellow; font-family: 'Josefin Sans', sans-serif;">Description</h2>
